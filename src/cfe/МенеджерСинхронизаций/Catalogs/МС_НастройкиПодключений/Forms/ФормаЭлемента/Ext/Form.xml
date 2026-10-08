@@ -16,108 +16,437 @@
 		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="Код" id="1">
-			<DataPath>Объект.Code</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
-		</InputField>
-		<InputField name="Наименование" id="4">
-			<DataPath>Объект.Description</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
-			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
-		</InputField>
-		<UsualGroup name="ГруппаПользователь" id="44">
+		<UsualGroup name="ГруппаНаименованиеКод" id="67">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<RadioButtonField name="ВидПодключения" id="71">
+			<DataPath>Объект.ВидПодключения</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.МС_ВидыПодключений.EnumValue.HTTP</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.МС_ВидыПодключений.EnumValue.FTP</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.МС_ВидыПодключений.EnumValue.ПроизвольноеПодключение</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ВидПодключенияКонтекстноеМеню" id="72"/>
+			<ExtendedTooltip name="ВидПодключенияРасширеннаяПодсказка" id="73"/>
+			<Events>
+				<Event name="OnChange">ВидПодключенияПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<Pages name="ГруппаВидыПодключений" id="69">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пользователь</v8:content>
+					<v8:content>Виды подключений</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Группа пользователь</v8:content>
+					<v8:content>Виды подключений</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПользовательРасширеннаяПодсказка" id="45"/>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаВидыПодключенийРасширеннаяПодсказка" id="70"/>
 			<ChildItems>
-				<InputField name="Пользователь" id="7">
-					<DataPath>Объект.Пользователь</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ПользовательКонтекстноеМеню" id="8"/>
-					<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="9"/>
-				</InputField>
-				<Button name="ПользовательДобавитьвСтроку" id="46">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.ПользовательДобавитьВСтроку</CommandName>
-					<ExtendedTooltip name="ПользовательДобавитьвСтрокуРасширеннаяПодсказка" id="47"/>
-				</Button>
+				<Page name="ГруппаПроизвольное" id="74">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Произвольное подключение</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Произвольное подключение</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаПроизвольноеРасширеннаяПодсказка" id="75"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПользователь" id="44">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа пользователь</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа пользователь</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПользовательРасширеннаяПодсказка" id="45"/>
+							<ChildItems>
+								<InputField name="Пользователь" id="7">
+									<DataPath>Объект.Пользователь</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПользовательКонтекстноеМеню" id="8"/>
+									<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="9"/>
+								</InputField>
+								<Button name="ПользовательДобавитьвСтроку" id="46">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ПользовательДобавитьВСтроку</CommandName>
+									<ExtendedTooltip name="ПользовательДобавитьвСтрокуРасширеннаяПодсказка" id="47"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПароль" id="51">
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПарольРасширеннаяПодсказка" id="52"/>
+							<ChildItems>
+								<InputField name="Пароль" id="55">
+									<DataPath>Пароль</DataPath>
+									<PasswordMode>true</PasswordMode>
+									<ContextMenu name="ПарольКонтекстноеМеню" id="56"/>
+									<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="57"/>
+								</InputField>
+								<Button name="ПарольДобавитьВСтроку" id="53">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ПарольДобавитьВСтроку</CommandName>
+									<ExtendedTooltip name="ПарольДобавитьВСтрокуРасширеннаяПодсказка" id="54"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСтрокаПодключения" id="63">
+							<Group>AlwaysHorizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСтрокаПодключенияРасширеннаяПодсказка" id="64"/>
+							<ChildItems>
+								<InputField name="СтрокаПодключения" id="48">
+									<DataPath>Объект.СтрокаПодключения</DataPath>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<MultiLine>false</MultiLine>
+									<ExtendedEdit>true</ExtendedEdit>
+									<ContextMenu name="СтрокаПодключенияКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="СтрокаПодключенияРасширеннаяПодсказка" id="50"/>
+								</InputField>
+								<Button name="СтрокаПодключенияДобавитьВКод" id="65">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.СтрокаПодключенияДобавитьВКод</CommandName>
+									<ExtendedTooltip name="СтрокаПодключенияДобавитьВКодРасширеннаяПодсказка" id="66"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="КодПодключения" id="60">
+							<DataPath>Объект.КодПодключения</DataPath>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="КодПодключенияКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="КодПодключенияРасширеннаяПодсказка" id="62"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаHTTP" id="76">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>HTTP</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>HTTP</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаHTTPРасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<InputField name="Сервер" id="78">
+							<DataPath>Объект.Сервер</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="СерверКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="СерверРасширеннаяПодсказка" id="80"/>
+						</InputField>
+						<InputField name="Порт" id="81">
+							<DataPath>Объект.Порт</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПортКонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="ПортРасширеннаяПодсказка" id="83"/>
+						</InputField>
+						<InputField name="Пользователь1" id="84">
+							<DataPath>Объект.Пользователь</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="Пользователь1КонтекстноеМеню" id="85"/>
+							<ExtendedTooltip name="Пользователь1РасширеннаяПодсказка" id="86"/>
+						</InputField>
+						<InputField name="Пароль1" id="87">
+							<DataPath>Пароль</DataPath>
+							<PasswordMode>true</PasswordMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="Пароль1КонтекстноеМеню" id="88"/>
+							<ExtendedTooltip name="Пароль1РасширеннаяПодсказка" id="89"/>
+						</InputField>
+						<InputField name="Таймаут" id="90">
+							<DataPath>Объект.Таймаут</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ТаймаутКонтекстноеМеню" id="91"/>
+							<ExtendedTooltip name="ТаймаутРасширеннаяПодсказка" id="92"/>
+						</InputField>
+						<CheckBoxField name="ИспользоватьSSL" id="93">
+							<DataPath>Объект.ИспользоватьSSL</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьSSLКонтекстноеМеню" id="94"/>
+							<ExtendedTooltip name="ИспользоватьSSLРасширеннаяПодсказка" id="95"/>
+						</CheckBoxField>
+						<CheckBoxField name="ИспользоватьПрокси" id="96">
+							<DataPath>Объект.ИспользоватьПрокси</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьПроксиКонтекстноеМеню" id="97"/>
+							<ExtendedTooltip name="ИспользоватьПроксиРасширеннаяПодсказка" id="98"/>
+						</CheckBoxField>
+						<InputField name="ПроксиСервер" id="99">
+							<DataPath>Объект.ПроксиСервер</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПроксиСерверКонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="ПроксиСерверРасширеннаяПодсказка" id="101"/>
+						</InputField>
+						<InputField name="ПроксиПорт" id="102">
+							<DataPath>Объект.ПроксиПорт</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПроксиПортКонтекстноеМеню" id="103"/>
+							<ExtendedTooltip name="ПроксиПортРасширеннаяПодсказка" id="104"/>
+						</InputField>
+						<InputField name="ПроксиПользователь" id="105">
+							<DataPath>Объект.ПроксиПользователь</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПроксиПользовательКонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="ПроксиПользовательРасширеннаяПодсказка" id="107"/>
+						</InputField>
+						<Table name="Заголовки" id="108">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Заголовки</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ЗаголовкиКонтекстноеМеню" id="109"/>
+							<AutoCommandBar name="ЗаголовкиКоманднаяПанель" id="110"/>
+							<ExtendedTooltip name="ЗаголовкиРасширеннаяПодсказка" id="111"/>
+							<SearchStringAddition name="ЗаголовкиСтрокаПоиска" id="112">
+								<AdditionSource>
+									<Item>Заголовки</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗаголовкиСтрокаПоискаКонтекстноеМеню" id="113"/>
+								<ExtendedTooltip name="ЗаголовкиСтрокаПоискаРасширеннаяПодсказка" id="114"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЗаголовкиСостояниеПросмотра" id="115">
+								<AdditionSource>
+									<Item>Заголовки</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗаголовкиСостояниеПросмотраКонтекстноеМеню" id="116"/>
+								<ExtendedTooltip name="ЗаголовкиСостояниеПросмотраРасширеннаяПодсказка" id="117"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЗаголовкиУправлениеПоиском" id="118">
+								<AdditionSource>
+									<Item>Заголовки</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ЗаголовкиУправлениеПоискомКонтекстноеМеню" id="119"/>
+								<ExtendedTooltip name="ЗаголовкиУправлениеПоискомРасширеннаяПодсказка" id="120"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ЗаголовкиНомерСтроки" id="121">
+									<DataPath>Объект.Заголовки.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ЗаголовкиНомерСтрокиКонтекстноеМеню" id="122"/>
+									<ExtendedTooltip name="ЗаголовкиНомерСтрокиРасширеннаяПодсказка" id="123"/>
+								</LabelField>
+								<InputField name="ЗаголовкиИмяЗаголовка" id="124">
+									<DataPath>Объект.Заголовки.ИмяЗаголовка</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ЗаголовкиИмяЗаголовкаКонтекстноеМеню" id="125"/>
+									<ExtendedTooltip name="ЗаголовкиИмяЗаголовкаРасширеннаяПодсказка" id="126"/>
+								</InputField>
+								<InputField name="ЗаголовкиЗначение" id="127">
+									<DataPath>Объект.Заголовки.Значение</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ЗаголовкиЗначениеКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="ЗаголовкиЗначениеРасширеннаяПодсказка" id="129"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаFTP" id="130">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>FTP</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>FTP</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаFTPРасширеннаяПодсказка" id="131"/>
+					<ChildItems>
+						<InputField name="Сервер1" id="132">
+							<DataPath>Объект.Сервер</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="Сервер1КонтекстноеМеню" id="133"/>
+							<ExtendedTooltip name="Сервер1РасширеннаяПодсказка" id="134"/>
+						</InputField>
+						<InputField name="Порт1" id="135">
+							<DataPath>Объект.Порт</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="Порт1КонтекстноеМеню" id="136"/>
+							<ExtendedTooltip name="Порт1РасширеннаяПодсказка" id="137"/>
+						</InputField>
+						<InputField name="Пользователь2" id="138">
+							<DataPath>Объект.Пользователь</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="Пользователь2КонтекстноеМеню" id="139"/>
+							<ExtendedTooltip name="Пользователь2РасширеннаяПодсказка" id="140"/>
+						</InputField>
+						<InputField name="Пароль2" id="141">
+							<DataPath>Пароль</DataPath>
+							<PasswordMode>true</PasswordMode>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="Пароль2КонтекстноеМеню" id="142"/>
+							<ExtendedTooltip name="Пароль2РасширеннаяПодсказка" id="143"/>
+						</InputField>
+						<InputField name="Таймаут1" id="144">
+							<DataPath>Объект.Таймаут</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="Таймаут1КонтекстноеМеню" id="145"/>
+							<ExtendedTooltip name="Таймаут1РасширеннаяПодсказка" id="146"/>
+						</InputField>
+						<CheckBoxField name="ИспользоватьSSL1" id="147">
+							<DataPath>Объект.ИспользоватьSSL</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьSSL1КонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="ИспользоватьSSL1РасширеннаяПодсказка" id="149"/>
+						</CheckBoxField>
+						<CheckBoxField name="ИспользоватьПрокси1" id="150">
+							<DataPath>Объект.ИспользоватьПрокси</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьПрокси1КонтекстноеМеню" id="151"/>
+							<ExtendedTooltip name="ИспользоватьПрокси1РасширеннаяПодсказка" id="152"/>
+						</CheckBoxField>
+						<InputField name="ПроксиСервер1" id="153">
+							<DataPath>Объект.ПроксиСервер</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПроксиСервер1КонтекстноеМеню" id="154"/>
+							<ExtendedTooltip name="ПроксиСервер1РасширеннаяПодсказка" id="155"/>
+						</InputField>
+						<InputField name="ПроксиПорт1" id="156">
+							<DataPath>Объект.ПроксиПорт</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПроксиПорт1КонтекстноеМеню" id="157"/>
+							<ExtendedTooltip name="ПроксиПорт1РасширеннаяПодсказка" id="158"/>
+						</InputField>
+						<InputField name="ПроксиПользователь1" id="159">
+							<DataPath>Объект.ПроксиПользователь</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<ContextMenu name="ПроксиПользователь1КонтекстноеМеню" id="160"/>
+							<ExtendedTooltip name="ПроксиПользователь1РасширеннаяПодсказка" id="161"/>
+						</InputField>
+						<CheckBoxField name="ПассивныйРежим" id="162">
+							<DataPath>Объект.ПассивныйРежим</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПассивныйРежимКонтекстноеМеню" id="163"/>
+							<ExtendedTooltip name="ПассивныйРежимРасширеннаяПодсказка" id="164"/>
+						</CheckBoxField>
+						<InputField name="УровеньЗащищенногоСоединенияFTP" id="168">
+							<DataPath>Объект.УровеньЗащищенногоСоединенияFTP</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Уровень защищенного соединения</v8:content>
+								</v8:item>
+							</Title>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ТребоватьДляУправления</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="УровеньЗащищенногоСоединенияFTPКонтекстноеМеню" id="169"/>
+							<ExtendedTooltip name="УровеньЗащищенногоСоединенияFTPРасширеннаяПодсказка" id="170"/>
+						</InputField>
+						<InputField name="ОсновнойКаталогFTP" id="171">
+							<DataPath>Объект.ОсновнойКаталогFTP</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Основной каталог</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Каталог на FTP, от которого отсчитываются пути файлов, например /lkr-data. Путь /2026/01/file.pdf из заявки ищется как /lkr-data/2026/01/file.pdf. Пусто - пути используются как есть.</v8:content>
+								</v8:item>
+							</ToolTip>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>пусто - корень FTP</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ОсновнойКаталогFTPКонтекстноеМеню" id="172"/>
+							<ExtendedTooltip name="ОсновнойКаталогFTPРасширеннаяПодсказка" id="173"/>
+						</InputField>
+					</ChildItems>
+				</Page>
 			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="ГруппаПароль" id="51">
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПарольРасширеннаяПодсказка" id="52"/>
-			<ChildItems>
-				<InputField name="Пароль" id="55">
-					<DataPath>Пароль</DataPath>
-					<PasswordMode>true</PasswordMode>
-					<ContextMenu name="ПарольКонтекстноеМеню" id="56"/>
-					<ExtendedTooltip name="ПарольРасширеннаяПодсказка" id="57"/>
-				</InputField>
-				<Button name="ПарольДобавитьВСтроку" id="53">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.ПарольДобавитьВСтроку</CommandName>
-					<ExtendedTooltip name="ПарольДобавитьВСтрокуРасширеннаяПодсказка" id="54"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
-		<InputField name="РазделительСтрокиПодключения" id="13">
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="РазделительСтрокиПодключенияКонтекстноеМеню" id="14"/>
-			<ExtendedTooltip name="РазделительСтрокиПодключенияРасширеннаяПодсказка" id="15"/>
-		</InputField>
-		<InputField name="ProgID" id="16">
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="ProgIDКонтекстноеМеню" id="17"/>
-			<ExtendedTooltip name="ProgIDРасширеннаяПодсказка" id="18"/>
-		</InputField>
-		<UsualGroup name="ГруппаСтрокаПодключения" id="63">
-			<Group>AlwaysHorizontal</Group>
-			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаСтрокаПодключенияРасширеннаяПодсказка" id="64"/>
-			<ChildItems>
-				<InputField name="СтрокаПодключения" id="48">
-					<DataPath>Объект.СтрокаПодключения</DataPath>
-					<AutoMaxWidth>false</AutoMaxWidth>
-					<MultiLine>false</MultiLine>
-					<ExtendedEdit>true</ExtendedEdit>
-					<ContextMenu name="СтрокаПодключенияКонтекстноеМеню" id="49"/>
-					<ExtendedTooltip name="СтрокаПодключенияРасширеннаяПодсказка" id="50"/>
-				</InputField>
-				<Button name="СтрокаПодключенияДобавитьВКод" id="65">
-					<Type>UsualButton</Type>
-					<CommandName>Form.Command.СтрокаПодключенияДобавитьВКод</CommandName>
-					<ExtendedTooltip name="СтрокаПодключенияДобавитьВКодРасширеннаяПодсказка" id="66"/>
-				</Button>
-			</ChildItems>
-		</UsualGroup>
-		<InputField name="КодПодключения" id="60">
-			<DataPath>Объект.КодПодключения</DataPath>
-			<AutoMaxWidth>false</AutoMaxWidth>
-			<ContextMenu name="КодПодключенияКонтекстноеМеню" id="61"/>
-			<ExtendedTooltip name="КодПодключенияРасширеннаяПодсказка" id="62"/>
-		</InputField>
+		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">

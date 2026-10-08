@@ -104,7 +104,6 @@
 			<CommonModule>ДополнительныеОтчетыИОбработки</CommonModule>
 			<CommonModule>МодификацияКонфигурацииКлиентПереопределяемый</CommonModule>
 			<CommonModule>МодификацияКонфигурацииПереопределяемый</CommonModule>
-			<CommonModule>МС_ОбщегоНазначенияСервер</CommonModule>
 			<CommonModule>МС_СинхронизацияВызовСервера</CommonModule>
 			<CommonModule>МС_СинхронизацияКлиент</CommonModule>
 			<CommonModule>МС_СинхронизацияКлиентСервер</CommonModule>
@@ -112,6 +111,10 @@
 			<CommonModule>МС_HTTPAPIСервер</CommonModule>
 			<CommonModule>МС_HTTPAPIКонструкторСервер</CommonModule>
 			<CommonModule>МС_HTTPAPIПользовательскиеОбработчики</CommonModule>
+			<CommonModule>МС_ОбщегоНазначенияСервер</CommonModule>
+			<CommonModule>МС_ПодключенияСервер</CommonModule>
+			<CommonModule>МС_ЖурналОбменаСервер</CommonModule>
+			<CommonModule>МС_RabbitMQСервер</CommonModule>
 			<HTTPService>МС_HTTPAPI</HTTPService>
 			<CommonForm>МС_ФормаЗагрузкиИзТабличногоДокумента</CommonForm>
 			<Catalog>МС_ЗапросыКВнешнимИсточникам</Catalog>
@@ -123,6 +126,9 @@
 			<Enum>МС_HTTPМетодAPI</Enum>
 			<Enum>МС_ТипИсточникаКонструктораAPI</Enum>
 			<Enum>МС_СпособСопоставленияПараметраОтбора</Enum>
+			<Enum>МС_ВидыПодключений</Enum>
+			<Enum>МС_УровниЖурналаОбмена</Enum>
+			<InformationRegister>МС_ЖурналОбмена</InformationRegister>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>

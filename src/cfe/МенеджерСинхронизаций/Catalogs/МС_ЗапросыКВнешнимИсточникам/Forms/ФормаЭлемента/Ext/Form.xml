@@ -199,6 +199,19 @@
 														<Value xsi:type="xs:string">ФайлыСФТП</Value>
 													</xr:Value>
 												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>RabbitMQ (HTTP)</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:string">RabbitMQ</Value>
+													</xr:Value>
+												</xr:Item>
 											</ChoiceList>
 											<ContextMenu name="СпособЗапросаДанныхКонтекстноеМеню" id="99"/>
 											<ExtendedTooltip name="СпособЗапросаДанныхРасширеннаяПодсказка" id="100"/>
@@ -484,6 +497,85 @@
 															</Title>
 															<ContextMenu name="КомментарийФайлыСФТПКонтекстноеМеню" id="148"/>
 															<ExtendedTooltip name="КомментарийФайлыСФТПРасширеннаяПодсказка" id="149"/>
+														</LabelDecoration>
+													</ChildItems>
+												</Page>
+												<Page name="ГруппаRabbitMQ" id="362">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>RabbitMQ (HTTP)</v8:content>
+														</v8:item>
+													</Title>
+													<ExtendedTooltip name="ГруппаRabbitMQРасширеннаяПодсказка" id="363"/>
+													<ChildItems>
+														<InputField name="ИмяОчереди" id="364">
+															<DataPath>Объект.ИмяОчереди</DataPath>
+															<ContextMenu name="ИмяОчередиКонтекстноеМеню" id="365"/>
+															<ExtendedTooltip name="ИмяОчередиРасширеннаяПодсказка" id="366"/>
+														</InputField>
+														<InputField name="ВиртуальныйХост" id="367">
+															<DataPath>Объект.ВиртуальныйХост</DataPath>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>пусто - vhost задан в базовом пути; / - vhost по умолчанию</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ВиртуальныйХостКонтекстноеМеню" id="368"/>
+															<ExtendedTooltip name="ВиртуальныйХостРасширеннаяПодсказка" id="369"/>
+														</InputField>
+														<InputField name="КоличествоСообщений" id="370">
+															<DataPath>Объект.КоличествоСообщений</DataPath>
+															<Width>10</Width>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>10</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="КоличествоСообщенийКонтекстноеМеню" id="371"/>
+															<ExtendedTooltip name="КоличествоСообщенийРасширеннаяПодсказка" id="372"/>
+														</InputField>
+														<CheckBoxField name="УдалятьСообщенияПослеПрочтения" id="373">
+															<DataPath>Объект.УдалятьСообщенияПослеПрочтения</DataPath>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="УдалятьСообщенияПослеПрочтенияКонтекстноеМеню" id="374"/>
+															<ExtendedTooltip name="УдалятьСообщенияПослеПрочтенияРасширеннаяПодсказка" id="375"/>
+														</CheckBoxField>
+														<InputField name="ТочкаОбмена" id="376">
+															<DataPath>Объект.ТочкаОбмена</DataPath>
+															<InputHint>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>пусто - amq.default, доставка в очередь по ее имени</v8:content>
+																</v8:item>
+															</InputHint>
+															<ContextMenu name="ТочкаОбменаКонтекстноеМеню" id="377"/>
+															<ExtendedTooltip name="ТочкаОбменаРасширеннаяПодсказка" id="378"/>
+														</InputField>
+														<InputField name="ТекстСообщенияRabbitMQ" id="379">
+															<DataPath>Объект.ТекстЗапроса</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Текст сообщения</v8:content>
+																</v8:item>
+															</Title>
+															<Height>5</Height>
+															<MultiLine>true</MultiLine>
+															<ContextMenu name="ТекстСообщенияRabbitMQКонтекстноеМеню" id="380"/>
+															<ExtendedTooltip name="ТекстСообщенияRabbitMQРасширеннаяПодсказка" id="381"/>
+														</InputField>
+														<LabelDecoration name="КомментарийRabbitMQ" id="382">
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Загрузка: читает сообщения из очереди и возвращает массив сообщений RabbitMQ (текст сообщения в поле payload). Без флага "Удалять сообщения после прочтения" сообщения остаются в очереди. Выгрузка: публикует в очередь сообщения, подготовленные процедурой подготовки данных (массив строк), а если их нет - текст сообщения из поля выше. Корень Management API берется из поля "Сервер" настройки подключения. Ошибки пишутся в журнал регистрации, историю обмена ведет процедура обработки.</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="КомментарийRabbitMQКонтекстноеМеню" id="383"/>
+															<ExtendedTooltip name="КомментарийRabbitMQРасширеннаяПодсказка" id="384"/>
 														</LabelDecoration>
 													</ChildItems>
 												</Page>

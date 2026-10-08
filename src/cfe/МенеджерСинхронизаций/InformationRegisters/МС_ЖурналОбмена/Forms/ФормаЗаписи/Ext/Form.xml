@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.20">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Период" id="1">
+			<DataPath>Запись.Period</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="НастройкаСинхронизации" id="4">
+			<DataPath>Запись.НастройкаСинхронизации</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="НастройкаСинхронизацииКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НастройкаСинхронизацииРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="ИдентификаторЗапуска" id="7">
+			<DataPath>Запись.ИдентификаторЗапуска</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ИдентификаторЗапускаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ИдентификаторЗапускаРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="НомерЗаписи" id="10">
+			<DataPath>Запись.НомерЗаписи</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="НомерЗаписиКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="НомерЗаписиРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Уровень" id="16">
+			<DataPath>Запись.Уровень</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="УровеньКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="УровеньРасширеннаяПодсказка" id="18"/>
+		</InputField>
+		<InputField name="Запрос" id="19">
+			<DataPath>Запись.Запрос</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ЗапросКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ЗапросРасширеннаяПодсказка" id="21"/>
+		</InputField>
+		<InputField name="Операция" id="22">
+			<DataPath>Запись.Операция</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ОперацияКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ОперацияРасширеннаяПодсказка" id="24"/>
+		</InputField>
+		<InputField name="Сообщение" id="13">
+			<DataPath>Запись.Сообщение</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MultiLine>true</MultiLine>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="СообщениеКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="СообщениеРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="ДанныеСообщения" id="25">
+			<DataPath>Запись.ДанныеСообщения</DataPath>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<MultiLine>true</MultiLine>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ДанныеСообщенияКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="ДанныеСообщенияРасширеннаяПодсказка" id="27"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.МС_ЖурналОбмена</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

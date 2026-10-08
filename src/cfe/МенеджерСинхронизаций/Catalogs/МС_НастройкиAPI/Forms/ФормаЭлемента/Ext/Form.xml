@@ -18,7 +18,6 @@
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
-		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 	</Events>
@@ -79,6 +78,9 @@
 					<DataPath>Объект.HTTPМетод</DataPath>
 					<ContextMenu name="HTTPМетодКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="HTTPМетодРасширеннаяПодсказка" id="293"/>
+					<Events>
+						<Event name="OnChange">HTTPМетодПриИзменении</Event>
+					</Events>
 				</InputField>
 				<InputField name="ВерсияAPI" id="10">
 					<DataPath>Объект.ВерсияAPI</DataPath>
@@ -90,17 +92,23 @@
 					</Title>
 					<ContextMenu name="ВерсияAPIКонтекстноеМеню" id="11"/>
 					<ExtendedTooltip name="ВерсияAPIРасширеннаяПодсказка" id="291"/>
+					<Events>
+						<Event name="OnChange">ВерсияAPIПриИзменении</Event>
+					</Events>
 				</InputField>
-				<InputField name="ИмяШаблонаURL" id="12">
-					<DataPath>Объект.ИмяШаблонаURL</DataPath>
+				<InputField name="ПараметрURL" id="12">
+					<DataPath>Объект.ПараметрURL</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Шаблон URL</v8:content>
+							<v8:content>Параметр URL</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ИмяШаблонаURLКонтекстноеМеню" id="13"/>
-					<ExtendedTooltip name="ИмяШаблонаURLРасширеннаяПодсказка" id="292"/>
+					<ContextMenu name="ПараметрURLКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ПараметрURLРасширеннаяПодсказка" id="292"/>
+					<Events>
+						<Event name="OnChange">ПараметрURLПриИзменении</Event>
+					</Events>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
@@ -108,58 +116,69 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Шаблон URL</v8:content>
+					<v8:content>Адрес API</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Шаблон URL</v8:content>
+					<v8:content>Адрес API</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаШаблонURLРасширеннаяПодсказка" id="373"/>
+			<ChildItems>
+				<InputField name="ИтоговыйАдресAPI" id="631">
+					<DataPath>ИтоговыйАдресAPI</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес, по которому доступен API: адрес публикации базы + /hs/ + корневой URL сервиса + /версия/параметр URL. Для GET, HEAD, DELETE, OPTIONS параметры показаны в строке запроса (значения из тестовых значений); для POST, PUT, PATCH параметры передаются в теле запроса.</v8:content>
+						</v8:item>
+					</ToolTip>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ContextMenu name="ИтоговыйАдресAPIКонтекстноеМеню" id="632"/>
+					<ExtendedTooltip name="ИтоговыйАдресAPIРасширеннаяПодсказка" id="633"/>
+				</InputField>
+			</ChildItems>
 		</UsualGroup>
-		<UsualGroup name="ГруппаНастройки" id="383">
+		<UsualGroup name="ГруппаНастройкиИПроверка" id="671">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Настройки</v8:content>
+					<v8:content>Группа настройки и проверка</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Настройки</v8:content>
+					<v8:content>Группа настройки и проверка</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Group>AlwaysHorizontal</Group>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="384"/>
+			<ExtendedTooltip name="ГруппаНастройкиИПроверкаРасширеннаяПодсказка" id="672"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаЛево" id="379">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа лево</v8:content>
-						</v8:item>
-					</Title>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаЛевоРасширеннаяПодсказка" id="380"/>
+				<Pages name="ГруппаСтраницыНастроек" id="643">
+					<ExtendedTooltip name="ГруппаСтраницыНастроекРасширеннаяПодсказка" id="644"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаПолучениеДанных" id="210">
+						<Page name="ГруппаСтраницаПолучениеДанных" id="645">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Получение данных</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<ExtendedTooltip name="ГруппаПолучениеДанныхРасширеннаяПодсказка" id="211"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Получение данных</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаСтраницаПолучениеДанныхРасширеннаяПодсказка" id="646"/>
 							<ChildItems>
 								<InputField name="СпособПолученияДанных" id="20">
 									<DataPath>Объект.СпособПолученияДанных</DataPath>
@@ -169,244 +188,369 @@
 										<Event name="OnChange">СпособПолученияДанныхПриИзменении</Event>
 									</Events>
 								</InputField>
-								<InputField name="ТекстЗапроса" id="22">
-									<DataPath>Объект.ТекстЗапроса</DataPath>
-									<MultiLine>true</MultiLine>
-									<ExtendedEdit>true</ExtendedEdit>
-									<ContextMenu name="ТекстЗапросаКонтекстноеМеню" id="23"/>
-									<ExtendedTooltip name="ТекстЗапросаРасширеннаяПодсказка" id="297"/>
-								</InputField>
-								<InputField name="ИмяМетодаОбработчика" id="24">
-									<DataPath>Объект.ИмяМетодаОбработчика</DataPath>
-									<ContextMenu name="ИмяМетодаОбработчикаКонтекстноеМеню" id="25"/>
-									<ExtendedTooltip name="ИмяМетодаОбработчикаРасширеннаяПодсказка" id="298"/>
-								</InputField>
-								<UsualGroup name="ГруппаКонструкторМастер" id="260">
+								<Pages name="ГруппаСпособыПолученияДанных" id="663">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Конструктор: источник и таблица</v8:content>
+											<v8:content>Способы получения данных</v8:content>
 										</v8:item>
 									</Title>
-									<Group>Vertical</Group>
-									<Behavior>Usual</Behavior>
-									<ExtendedTooltip name="ГруппаКонструкторМастерРасширеннаяПодсказка" id="261"/>
+									<PagesRepresentation>None</PagesRepresentation>
+									<ExtendedTooltip name="ГруппаСпособыПолученияДанныхРасширеннаяПодсказка" id="664"/>
 									<ChildItems>
-										<InputField name="КонструкторТипИсточника" id="262">
-											<DataPath>Объект.КонструкторТипИсточника</DataPath>
-											<ContextMenu name="КонструкторТипИсточникаКонтекстноеМеню" id="263"/>
-											<ExtendedTooltip name="КонструкторТипИсточникаРасширеннаяПодсказка" id="299"/>
-											<Events>
-												<Event name="OnChange">КонструкторТипИсточникаПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="КонструкторИмяОбъекта" id="264">
-											<DataPath>Объект.КонструкторИмяОбъекта</DataPath>
-											<ContextMenu name="КонструкторИмяОбъектаКонтекстноеМеню" id="265"/>
-											<ExtendedTooltip name="КонструкторИмяОбъектаРасширеннаяПодсказка" id="300"/>
-											<Events>
-												<Event name="OnChange">КонструкторИмяОбъектаПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="КонструкторИмяТабличнойЧасти" id="266">
-											<DataPath>Объект.КонструкторИмяТабличнойЧасти</DataPath>
-											<ContextMenu name="КонструкторИмяТабличнойЧастиКонтекстноеМеню" id="267"/>
-											<ExtendedTooltip name="КонструкторИмяТабличнойЧастиРасширеннаяПодсказка" id="301"/>
-											<Events>
-												<Event name="OnChange">КонструкторИмяТабличнойЧастиПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="ПредпросмотрИмениТаблицы" id="268">
-											<DataPath>ПредпросмотрИмениТаблицы</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<ContextMenu name="ПредпросмотрИмениТаблицыКонтекстноеМеню" id="269"/>
-											<ExtendedTooltip name="ПредпросмотрИмениТаблицыРасширеннаяПодсказка" id="302"/>
-										</InputField>
-										<Button name="КонструкторЗаполнитьПоляИзМетаданныхКнопка" id="270">
-											<Type>UsualButton</Type>
-											<CommandName>Form.Command.КонструкторЗаполнитьПоляИзМетаданных</CommandName>
-											<ExtendedTooltip name="КонструкторЗаполнитьПоляИзМетаданныхКнопкаРасширеннаяПодсказка" id="303"/>
-										</Button>
-									</ChildItems>
-								</UsualGroup>
-								<Table name="ПоляКонструктора" id="271">
-									<DataPath>ПоляКонструктора</DataPath>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ПоляКонструктораКонтекстноеМеню" id="272"/>
-									<AutoCommandBar name="ПоляКонструктораКоманднаяПанель" id="304"/>
-									<ExtendedTooltip name="ПоляКонструктораРасширеннаяПодсказка" id="273"/>
-									<SearchStringAddition name="ПоляКонструктораСтрокаПоиска" id="305">
-										<AdditionSource>
-											<Item>ПоляКонструктора</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ПоляКонструктораСтрокаПоискаКонтекстноеМеню" id="306"/>
-										<ExtendedTooltip name="ПоляКонструктораСтрокаПоискаРасширеннаяПодсказка" id="307"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ПоляКонструктораСостояниеПросмотра" id="308">
-										<AdditionSource>
-											<Item>ПоляКонструктора</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ПоляКонструктораСостояниеПросмотраКонтекстноеМеню" id="309"/>
-										<ExtendedTooltip name="ПоляКонструктораСостояниеПросмотраРасширеннаяПодсказка" id="310"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ПоляКонструктораУправлениеПоиском" id="311">
-										<AdditionSource>
-											<Item>ПоляКонструктора</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ПоляКонструктораУправлениеПоискомКонтекстноеМеню" id="312"/>
-										<ExtendedTooltip name="ПоляКонструктораУправлениеПоискомРасширеннаяПодсказка" id="313"/>
-									</SearchControlAddition>
-									<ChildItems>
-										<CheckBoxField name="ПоляКонструктораВключить" id="274">
-											<DataPath>ПоляКонструктора.Включить</DataPath>
-											<CheckBoxType>Auto</CheckBoxType>
-											<ContextMenu name="ПоляКонструктораВключитьКонтекстноеМеню" id="314"/>
-											<ExtendedTooltip name="ПоляКонструктораВключитьРасширеннаяПодсказка" id="315"/>
-										</CheckBoxField>
-										<InputField name="ПоляКонструктораИмяПоля" id="275">
-											<DataPath>ПоляКонструктора.ИмяПоля</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<ContextMenu name="ПоляКонструктораИмяПоляКонтекстноеМеню" id="316"/>
-											<ExtendedTooltip name="ПоляКонструктораИмяПоляРасширеннаяПодсказка" id="317"/>
-										</InputField>
-										<InputField name="ПоляКонструктораПредставление" id="276">
-											<DataPath>ПоляКонструктора.Представление</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<ContextMenu name="ПоляКонструктораПредставлениеКонтекстноеМеню" id="318"/>
-											<ExtendedTooltip name="ПоляКонструктораПредставлениеРасширеннаяПодсказка" id="319"/>
-										</InputField>
-									</ChildItems>
-								</Table>
-								<Table name="ОтборыКонструктора" id="277">
-									<DataPath>ОтборыКонструктора</DataPath>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ОтборыКонструктораКонтекстноеМеню" id="278"/>
-									<AutoCommandBar name="ОтборыКонструктораКоманднаяПанель" id="320"/>
-									<ExtendedTooltip name="ОтборыКонструктораРасширеннаяПодсказка" id="279"/>
-									<SearchStringAddition name="ОтборыКонструктораСтрокаПоиска" id="321">
-										<AdditionSource>
-											<Item>ОтборыКонструктора</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ОтборыКонструктораСтрокаПоискаКонтекстноеМеню" id="322"/>
-										<ExtendedTooltip name="ОтборыКонструктораСтрокаПоискаРасширеннаяПодсказка" id="323"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ОтборыКонструктораСостояниеПросмотра" id="324">
-										<AdditionSource>
-											<Item>ОтборыКонструктора</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ОтборыКонструктораСостояниеПросмотраКонтекстноеМеню" id="325"/>
-										<ExtendedTooltip name="ОтборыКонструктораСостояниеПросмотраРасширеннаяПодсказка" id="326"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ОтборыКонструктораУправлениеПоиском" id="327">
-										<AdditionSource>
-											<Item>ОтборыКонструктора</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ОтборыКонструктораУправлениеПоискомКонтекстноеМеню" id="328"/>
-										<ExtendedTooltip name="ОтборыКонструктораУправлениеПоискомРасширеннаяПодсказка" id="329"/>
-									</SearchControlAddition>
-									<Events>
-										<Event name="OnChange">ОтборыКонструктораПриИзменении</Event>
-									</Events>
-									<ChildItems>
-										<InputField name="ОтборыКонструктораПоле" id="280">
-											<DataPath>ОтборыКонструктора.Поле</DataPath>
-											<ListChoiceMode>true</ListChoiceMode>
-											<ChoiceListButton>true</ChoiceListButton>
-											<ContextMenu name="ОтборыКонструктораПолеКонтекстноеМеню" id="330"/>
-											<ExtendedTooltip name="ОтборыКонструктораПолеРасширеннаяПодсказка" id="331"/>
-										</InputField>
-										<InputField name="ОтборыКонструктораСравнение" id="281">
-											<DataPath>ОтборыКонструктора.Сравнение</DataPath>
-											<ContextMenu name="ОтборыКонструктораСравнениеКонтекстноеМеню" id="332"/>
-											<ExtendedTooltip name="ОтборыКонструктораСравнениеРасширеннаяПодсказка" id="333"/>
-										</InputField>
-										<InputField name="ОтборыКонструктораИмяПараметра" id="282">
-											<DataPath>ОтборыКонструктора.ИмяПараметра</DataPath>
-											<ContextMenu name="ОтборыКонструктораИмяПараметраКонтекстноеМеню" id="334"/>
-											<ExtendedTooltip name="ОтборыКонструктораИмяПараметраРасширеннаяПодсказка" id="335"/>
-										</InputField>
-										<InputField name="ОтборыКонструктораЗначениеКонстанты" id="283">
-											<DataPath>ОтборыКонструктора.ЗначениеКонстанты</DataPath>
+										<Page name="ГруппаТекстЗапроса" id="665">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Значение (фикс.)</v8:content>
+													<v8:content>Текст запроса</v8:content>
 												</v8:item>
 											</Title>
-											<ChoiceButton>true</ChoiceButton>
-											<ContextMenu name="ОтборыКонструктораЗначениеКонстантыКонтекстноеМеню" id="336"/>
-											<ExtendedTooltip name="ОтборыКонструктораЗначениеКонстантыРасширеннаяПодсказка" id="337">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Если «Параметр HTTP» пуст: постоянный отбор. Кнопка выбора открывает ввод по типу поля (для ссылок - выбор из справочника и т.п.); строка в ячейке - то же значение в сериализованном виде, можно править вручную. Если «Параметр HTTP» задан - значение из вызова API, «Значение (фикс.)» не используйте.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
-											<Events>
-												<Event name="StartChoice">ОтборыКонструктораЗначениеКонстантыНачалоВыбора</Event>
-											</Events>
-										</InputField>
+											<ExtendedTooltip name="ГруппаТекстЗапросаРасширеннаяПодсказка" id="666"/>
+											<ChildItems>
+												<InputField name="ТекстЗапроса" id="22">
+													<DataPath>Объект.ТекстЗапроса</DataPath>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MultiLine>true</MultiLine>
+													<ExtendedEdit>true</ExtendedEdit>
+													<ContextMenu name="ТекстЗапросаКонтекстноеМеню" id="23"/>
+													<ExtendedTooltip name="ТекстЗапросаРасширеннаяПодсказка" id="297"/>
+												</InputField>
+											</ChildItems>
+										</Page>
+										<Page name="ГруппаПрограммныйМодуль" id="667">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Программный модуль</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ГруппаПрограммныйМодульРасширеннаяПодсказка" id="668"/>
+											<ChildItems>
+												<InputField name="ИмяМетодаОбработчика" id="24">
+													<DataPath>Объект.ИмяМетодаОбработчика</DataPath>
+													<ContextMenu name="ИмяМетодаОбработчикаКонтекстноеМеню" id="25"/>
+													<ExtendedTooltip name="ИмяМетодаОбработчикаРасширеннаяПодсказка" id="298"/>
+												</InputField>
+											</ChildItems>
+										</Page>
+										<Page name="ГруппаКонструктор" id="669">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Конструктор</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ГруппаКонструкторРасширеннаяПодсказка" id="670"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаКонструкторМастер" id="260">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Конструктор: источник и таблица</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<ExtendedTooltip name="ГруппаКонструкторМастерРасширеннаяПодсказка" id="261"/>
+													<ChildItems>
+														<InputField name="КонструкторТипИсточника" id="262">
+															<DataPath>Объект.КонструкторТипИсточника</DataPath>
+															<ContextMenu name="КонструкторТипИсточникаКонтекстноеМеню" id="263"/>
+															<ExtendedTooltip name="КонструкторТипИсточникаРасширеннаяПодсказка" id="299"/>
+															<Events>
+																<Event name="OnChange">КонструкторТипИсточникаПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="КонструкторИмяОбъекта" id="264">
+															<DataPath>Объект.КонструкторИмяОбъекта</DataPath>
+															<DropListButton>true</DropListButton>
+															<ListChoiceMode>true</ListChoiceMode>
+															<ContextMenu name="КонструкторИмяОбъектаКонтекстноеМеню" id="265"/>
+															<ExtendedTooltip name="КонструкторИмяОбъектаРасширеннаяПодсказка" id="300"/>
+															<Events>
+																<Event name="OnChange">КонструкторИмяОбъектаПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="КонструкторИмяТабличнойЧасти" id="266">
+															<DataPath>Объект.КонструкторИмяТабличнойЧасти</DataPath>
+															<DropListButton>true</DropListButton>
+															<ListChoiceMode>true</ListChoiceMode>
+															<ContextMenu name="КонструкторИмяТабличнойЧастиКонтекстноеМеню" id="267"/>
+															<ExtendedTooltip name="КонструкторИмяТабличнойЧастиРасширеннаяПодсказка" id="301"/>
+															<Events>
+																<Event name="OnChange">КонструкторИмяТабличнойЧастиПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="КонструкторВиртуальнаяТаблица" id="657">
+															<DataPath>Объект.КонструкторВиртуальнаяТаблица</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Виртуальная таблица</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Для периодического регистра сведений: Срез последних - последние значения на дату, Срез первых - первые значения после даты. Основная таблица - все записи.</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<DropListButton>true</DropListButton>
+															<ListChoiceMode>true</ListChoiceMode>
+															<ContextMenu name="КонструкторВиртуальнаяТаблицаКонтекстноеМеню" id="658"/>
+															<ExtendedTooltip name="КонструкторВиртуальнаяТаблицаРасширеннаяПодсказка" id="659"/>
+															<Events>
+																<Event name="OnChange">КонструкторВиртуальнаяТаблицаПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="КонструкторПараметрПериода" id="660">
+															<DataPath>Объект.КонструкторПараметрПериода</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Параметр периода</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Имя параметра вызова API с датой среза, например date. Параметр добавляется в "Параметры запроса" с типом ДАТА. Если параметр не передан или не задан, срез строится на текущий момент.</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ToolTipRepresentation>Button</ToolTipRepresentation>
+															<ContextMenu name="КонструкторПараметрПериодаКонтекстноеМеню" id="661"/>
+															<ExtendedTooltip name="КонструкторПараметрПериодаРасширеннаяПодсказка" id="662"/>
+															<Events>
+																<Event name="OnChange">КонструкторПараметрПериодаПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ПредпросмотрИмениТаблицы" id="268">
+															<DataPath>ПредпросмотрИмениТаблицы</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<ContextMenu name="ПредпросмотрИмениТаблицыКонтекстноеМеню" id="269"/>
+															<ExtendedTooltip name="ПредпросмотрИмениТаблицыРасширеннаяПодсказка" id="302"/>
+														</InputField>
+														<Button name="КонструкторЗаполнитьПоляИзМетаданныхКнопка" id="270">
+															<Type>UsualButton</Type>
+															<CommandName>Form.Command.КонструкторЗаполнитьПоляИзМетаданных</CommandName>
+															<ExtendedTooltip name="КонструкторЗаполнитьПоляИзМетаданныхКнопкаРасширеннаяПодсказка" id="303"/>
+														</Button>
+													</ChildItems>
+												</UsualGroup>
+												<Table name="ПоляКонструктора" id="271">
+													<TitleLocation>Top</TitleLocation>
+													<DataPath>ПоляКонструктора</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Поля ответа</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Отмеченные поля попадают в ответ. "Имя в ответе" - имя свойства в JSON (например, registrationNumber); если не заполнено, используется имя поля 1С.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ПоляКонструктораКонтекстноеМеню" id="272"/>
+													<AutoCommandBar name="ПоляКонструктораКоманднаяПанель" id="304"/>
+													<ExtendedTooltip name="ПоляКонструктораРасширеннаяПодсказка" id="273"/>
+													<SearchStringAddition name="ПоляКонструктораСтрокаПоиска" id="305">
+														<AdditionSource>
+															<Item>ПоляКонструктора</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоляКонструктораСтрокаПоискаКонтекстноеМеню" id="306"/>
+														<ExtendedTooltip name="ПоляКонструктораСтрокаПоискаРасширеннаяПодсказка" id="307"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ПоляКонструктораСостояниеПросмотра" id="308">
+														<AdditionSource>
+															<Item>ПоляКонструктора</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоляКонструктораСостояниеПросмотраКонтекстноеМеню" id="309"/>
+														<ExtendedTooltip name="ПоляКонструктораСостояниеПросмотраРасширеннаяПодсказка" id="310"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ПоляКонструктораУправлениеПоиском" id="311">
+														<AdditionSource>
+															<Item>ПоляКонструктора</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ПоляКонструктораУправлениеПоискомКонтекстноеМеню" id="312"/>
+														<ExtendedTooltip name="ПоляКонструктораУправлениеПоискомРасширеннаяПодсказка" id="313"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnStartEdit">ПоляКонструктораПриНачалеРедактирования</Event>
+													</Events>
+													<ChildItems>
+														<CheckBoxField name="ПоляКонструктораВключить" id="274">
+															<DataPath>ПоляКонструктора.Включить</DataPath>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ПоляКонструктораВключитьКонтекстноеМеню" id="314"/>
+															<ExtendedTooltip name="ПоляКонструктораВключитьРасширеннаяПодсказка" id="315"/>
+														</CheckBoxField>
+														<InputField name="ПоляКонструктораИмяПоля" id="275">
+															<DataPath>ПоляКонструктора.ИмяПоля</DataPath>
+															<Width>10</Width>
+															<DropListButton>true</DropListButton>
+															<ContextMenu name="ПоляКонструктораИмяПоляКонтекстноеМеню" id="316"/>
+															<ExtendedTooltip name="ПоляКонструктораИмяПоляРасширеннаяПодсказка" id="317"/>
+														</InputField>
+														<InputField name="ПоляКонструктораИмяВОтвете" id="640">
+															<DataPath>ПоляКонструктора.ИмяВОтвете</DataPath>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Имя свойства в ответе API: латиница, цифры и подчеркивание, начинается с буквы. Пусто - имя поля 1С.</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Width>20</Width>
+															<ContextMenu name="ПоляКонструктораИмяВОтветеКонтекстноеМеню" id="641"/>
+															<ExtendedTooltip name="ПоляКонструктораИмяВОтветеРасширеннаяПодсказка" id="642"/>
+														</InputField>
+														<InputField name="ПоляКонструктораФормат" id="651">
+															<DataPath>ПоляКонструктора.Формат</DataPath>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Как вывести ссылку: Представление - текстом (например, "ООО Ромашка"), Идентификатор - УИД строкой (для перечислений - имя значения), Код - код справочника или номер документа, Реквизит - значение реквизита из колонки "Реквизит". Чтобы вывести поле несколькими способами, добавьте его несколькими строками. Для полей других типов формат не влияет.</v8:content>
+																</v8:item>
+															</ToolTip>
+															<DropListButton>true</DropListButton>
+															<ListChoiceMode>true</ListChoiceMode>
+															<ContextMenu name="ПоляКонструктораФорматКонтекстноеМеню" id="652"/>
+															<ExtendedTooltip name="ПоляКонструктораФорматРасширеннаяПодсказка" id="653"/>
+														</InputField>
+														<InputField name="ПоляКонструктораРеквизит" id="654">
+															<DataPath>ПоляКонструктора.Реквизит</DataPath>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Для формата "Реквизит": реквизит объекта, на который ссылается поле, например ИНН контрагента. Кнопка выбора показывает реквизиты типа поля.</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Width>20</Width>
+															<ChoiceButton>true</ChoiceButton>
+															<ContextMenu name="ПоляКонструктораРеквизитКонтекстноеМеню" id="655"/>
+															<ExtendedTooltip name="ПоляКонструктораРеквизитРасширеннаяПодсказка" id="656"/>
+															<Events>
+																<Event name="StartChoice">ПоляКонструктораРеквизитНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Table>
+												<Table name="ОтборыКонструктора" id="277">
+													<TitleLocation>Top</TitleLocation>
+													<DataPath>ОтборыКонструктора</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Отборы (условия ГДЕ)</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Какие строки попадут в ответ. Каждая строка - условие "Поле Сравнение Значение". Значение задается здесь же (колонка "Фиксированное значение") или берется из параметра вызова API (колонка "Параметр запроса"). Фиксированное значение важнее параметра: клиент API не может его заменить.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="ОтборыКонструктораКонтекстноеМеню" id="278"/>
+													<AutoCommandBar name="ОтборыКонструктораКоманднаяПанель" id="320"/>
+													<ExtendedTooltip name="ОтборыКонструктораРасширеннаяПодсказка" id="279"/>
+													<SearchStringAddition name="ОтборыКонструктораСтрокаПоиска" id="321">
+														<AdditionSource>
+															<Item>ОтборыКонструктора</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ОтборыКонструктораСтрокаПоискаКонтекстноеМеню" id="322"/>
+														<ExtendedTooltip name="ОтборыКонструктораСтрокаПоискаРасширеннаяПодсказка" id="323"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="ОтборыКонструктораСостояниеПросмотра" id="324">
+														<AdditionSource>
+															<Item>ОтборыКонструктора</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="ОтборыКонструктораСостояниеПросмотраКонтекстноеМеню" id="325"/>
+														<ExtendedTooltip name="ОтборыКонструктораСостояниеПросмотраРасширеннаяПодсказка" id="326"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="ОтборыКонструктораУправлениеПоиском" id="327">
+														<AdditionSource>
+															<Item>ОтборыКонструктора</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="ОтборыКонструктораУправлениеПоискомКонтекстноеМеню" id="328"/>
+														<ExtendedTooltip name="ОтборыКонструктораУправлениеПоискомРасширеннаяПодсказка" id="329"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnChange">ОтборыКонструктораПриИзменении</Event>
+													</Events>
+													<ChildItems>
+														<InputField name="ОтборыКонструктораПоле" id="280">
+															<DataPath>ОтборыКонструктора.Поле</DataPath>
+															<Width>10</Width>
+															<ListChoiceMode>true</ListChoiceMode>
+															<ChoiceListButton>true</ChoiceListButton>
+															<ContextMenu name="ОтборыКонструктораПолеКонтекстноеМеню" id="330"/>
+															<ExtendedTooltip name="ОтборыКонструктораПолеРасширеннаяПодсказка" id="331"/>
+														</InputField>
+														<InputField name="ОтборыКонструктораСравнение" id="281">
+															<DataPath>ОтборыКонструктора.Сравнение</DataPath>
+															<ContextMenu name="ОтборыКонструктораСравнениеКонтекстноеМеню" id="332"/>
+															<ExtendedTooltip name="ОтборыКонструктораСравнениеРасширеннаяПодсказка" id="333"/>
+														</InputField>
+														<InputField name="ОтборыКонструктораИмяПараметра" id="282">
+															<DataPath>ОтборыКонструктора.ИмяПараметра</DataPath>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Имя параметра вызова API, значение которого передает клиент, например currency. Параметр попадает в таблицу "Параметры запроса". Не действует, если в строке задано фиксированное значение.</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Width>10</Width>
+															<ContextMenu name="ОтборыКонструктораИмяПараметраКонтекстноеМеню" id="334"/>
+															<ExtendedTooltip name="ОтборыКонструктораИмяПараметраРасширеннаяПодсказка" id="335"/>
+														</InputField>
+														<InputField name="ОтборыКонструктораЗначениеКонстанты" id="283">
+															<DataPath>ОтборыКонструктора.ЗначениеКонстанты</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Фиксированное значение</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Постоянное условие, которое клиент API не может изменить: например, "Пометка удаления = Ложь" или "Валюта = RUB". Если оно задано, параметр запроса в этой строке не действует и очищается. Кнопка выбора открывает ввод значения по типу поля (для ссылок - выбор элемента).</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ChoiceButton>true</ChoiceButton>
+															<ContextMenu name="ОтборыКонструктораЗначениеКонстантыКонтекстноеМеню" id="336"/>
+															<ExtendedTooltip name="ОтборыКонструктораЗначениеКонстантыРасширеннаяПодсказка" id="337"/>
+															<Events>
+																<Event name="OnChange">ОтборыКонструктораЗначениеКонстантыПриИзменении</Event>
+																<Event name="StartChoice">ОтборыКонструктораЗначениеКонстантыНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</Page>
 									</ChildItems>
-								</Table>
-								<CheckBoxField name="ПоказатьТекстКонструктора" id="284">
-									<DataPath>ПоказатьТекстКонструктора</DataPath>
-									<TitleLocation>Right</TitleLocation>
-									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="ПоказатьТекстКонструктораКонтекстноеМеню" id="338"/>
-									<ExtendedTooltip name="ПоказатьТекстКонструктораРасширеннаяПодсказка" id="339"/>
-									<Events>
-										<Event name="OnChange">ПоказатьТекстКонструктораПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
-								<UsualGroup name="ГруппаКонструкторТекст" id="285">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Конструктор: текстовое представление (JSON)</v8:content>
-										</v8:item>
-									</Title>
-									<Group>Vertical</Group>
-									<Behavior>Usual</Behavior>
-									<ExtendedTooltip name="ГруппаКонструкторТекстРасширеннаяПодсказка" id="286"/>
-									<ChildItems>
-										<InputField name="КонструкторИмяТаблицы" id="30">
-											<DataPath>Объект.КонструкторИмяТаблицы</DataPath>
-											<ContextMenu name="КонструкторИмяТаблицыКонтекстноеМеню" id="31"/>
-											<ExtendedTooltip name="КонструкторИмяТаблицыРасширеннаяПодсказка" id="340"/>
-										</InputField>
-										<InputField name="КонструкторПоля" id="32">
-											<DataPath>Объект.КонструкторПоля</DataPath>
-											<MultiLine>true</MultiLine>
-											<ContextMenu name="КонструкторПоляКонтекстноеМеню" id="33"/>
-											<ExtendedTooltip name="КонструкторПоляРасширеннаяПодсказка" id="341"/>
-										</InputField>
-										<InputField name="КонструкторОтборыJSON" id="34">
-											<DataPath>Объект.КонструкторОтборыJSON</DataPath>
-											<MultiLine>true</MultiLine>
-											<ContextMenu name="КонструкторОтборыJSONКонтекстноеМеню" id="35"/>
-											<ExtendedTooltip name="КонструкторОтборыJSONРасширеннаяПодсказка" id="342"/>
-										</InputField>
-									</ChildItems>
-								</UsualGroup>
+								</Pages>
 							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаПараметрыHTTP" id="230">
+						</Page>
+						<Page name="ГруппаСтраницаПараметрыАПИИСериализация" id="647">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Параметры API</v8:content>
+									<v8:content>Параметры HTTP и сериализация</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<ExtendedTooltip name="ГруппаПараметрыHTTPРасширеннаяПодсказка" id="231"/>
+							<ExtendedTooltip name="ГруппаСтраницаПараметрыАПИИСериализацияРасширеннаяПодсказка" id="648"/>
 							<ChildItems>
 								<Table name="ПараметрыЗапроса" id="50">
 									<DataPath>Объект.ПараметрыЗапроса</DataPath>
@@ -451,6 +595,9 @@
 										<ContextMenu name="ПараметрыЗапросаУправлениеПоискомКонтекстноеМеню" id="356"/>
 										<ExtendedTooltip name="ПараметрыЗапросаУправлениеПоискомРасширеннаяПодсказка" id="357"/>
 									</SearchControlAddition>
+									<Events>
+										<Event name="OnChange">ПараметрыЗапросаПриИзменении</Event>
+									</Events>
 									<ChildItems>
 										<InputField name="ПараметрыЗапросаИмяПараметра" id="52">
 											<DataPath>Объект.ПараметрыЗапроса.ИмяПараметра</DataPath>
@@ -460,28 +607,27 @@
 													<v8:content>Имя в запросе</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Имя параметра в query-string или в теле (как клиент его передает). В конструкторе совпадает с колонкой "Параметр запроса" в отборах.</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Width>10</Width>
 											<ContextMenu name="ПараметрыЗапросаИмяПараметраКонтекстноеМеню" id="358"/>
-											<ExtendedTooltip name="ПараметрыЗапросаИмяПараметраРасширеннаяПодсказка" id="359">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Имя параметра в query-string или в теле (как клиент его передаёт). В конструкторе совпадает с «Параметр HTTP» в отборе.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
+											<ExtendedTooltip name="ПараметрыЗапросаИмяПараметраРасширеннаяПодсказка" id="359"/>
 										</InputField>
 										<CheckBoxField name="ПараметрыЗапросаОбязательный" id="53">
 											<DataPath>Объект.ПараметрыЗапроса.Обязательный</DataPath>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Включено - вызов без параметра отклоняется с ошибкой 400. Выключено - параметр необязательный: если он не передан, отбор конструктора по нему не применяется, а в тексте запроса параметр равен Неопределено.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="ПараметрыЗапросаОбязательныйКонтекстноеМеню" id="360"/>
-											<ExtendedTooltip name="ПараметрыЗапросаОбязательныйРасширеннаяПодсказка" id="361">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Если включено, вызов без этого параметра будет отклонён.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
+											<ExtendedTooltip name="ПараметрыЗапросаОбязательныйРасширеннаяПодсказка" id="361"/>
 										</CheckBoxField>
 										<InputField name="ПараметрыЗапросаТипПараметра" id="54">
 											<DataPath>Объект.ПараметрыЗапроса.ТипПараметра</DataPath>
@@ -491,15 +637,15 @@
 													<v8:content>Тип значения</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Справочно: тип поля отбора в терминах API. СТРОКА, ЧИСЛО, БУЛЕВО, ДАТА, УИД - примитивы; ССЫЛКА - ссылка на объект; ПЕРЕЧИСЛЕНИЕ - значение перечисления. В режиме конструктора заполняется автоматически и не задает тип вручную. Для текста запроса и программного режима можно править при необходимости (подсказка для тестов и документации).</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Width>15</Width>
 											<ContextMenu name="ПараметрыЗапросаТипПараметраКонтекстноеМеню" id="362"/>
-											<ExtendedTooltip name="ПараметрыЗапросаТипПараметраРасширеннаяПодсказка" id="363">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Справочно: тип поля отбора в терминах API. СТРОКА, ЧИСЛО, БУЛЕВО, ДАТА, УИД - примитивы; ССЫЛКА - ссылка на объект; ПЕРЕЧИСЛЕНИЕ - значение перечисления. В режиме конструктора заполняется автоматически и не задаёт тип вручную. Для текста запроса и программного режима можно править при необходимости (подсказка для тестов и документации).</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
+											<ExtendedTooltip name="ПараметрыЗапросаТипПараметраРасширеннаяПодсказка" id="363"/>
 										</InputField>
 										<InputField name="ПараметрыЗапросаСпособСопоставления" id="530">
 											<DataPath>Объект.ПараметрыЗапроса.СпособСопоставления</DataPath>
@@ -509,17 +655,16 @@
 													<v8:content>Сопоставление строки</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Только для ссылочных полей и перечислений: что означает текст, пришедший из HTTP. Авто - сначала УИД, затем код, затем наименование. Идентификатор - только UUID. Код - только код элемента. Наименование - только наименование (для перечислений - имя значения). Для строк, чисел и дат не используется.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<DropListButton>true</DropListButton>
 											<ChoiceButton>true</ChoiceButton>
 											<ContextMenu name="ПараметрыЗапросаСпособСопоставленияКонтекстноеМеню" id="531"/>
-											<ExtendedTooltip name="ПараметрыЗапросаСпособСопоставленияРасширеннаяПодсказка" id="532">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Только для ссылочных полей и перечислений: что означает текст, пришедший из HTTP. Авто - сначала УИД, затем код, затем наименование. Идентификатор - только UUID. Код - только код элемента. Наименование - только наименование (для перечислений - имя значения). Для строк, чисел и дат не используется.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
+											<ExtendedTooltip name="ПараметрыЗапросаСпособСопоставленияРасширеннаяПодсказка" id="532"/>
 										</InputField>
 										<InputField name="ПараметрыЗапросаИсточник" id="55">
 											<DataPath>Объект.ПараметрыЗапроса.Источник</DataPath>
@@ -534,272 +679,293 @@
 													<v8:content>Подсказка</v8:content>
 												</v8:item>
 											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>В конструкторе по умолчанию: "Отбор: имя поля". На выполнение запроса не влияет - для наглядности в форме и в подсказках.</v8:content>
+												</v8:item>
+											</ToolTip>
 											<ContextMenu name="ПараметрыЗапросаОписаниеКонтекстноеМеню" id="366"/>
-											<ExtendedTooltip name="ПараметрыЗапросаОписаниеРасширеннаяПодсказка" id="367">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>В конструкторе по умолчанию: «Отбор: имя поля». На выполнение запроса не влияет - для наглядности в форме и в подсказках.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
+											<ExtendedTooltip name="ПараметрыЗапросаОписаниеРасширеннаяПодсказка" id="367"/>
 										</InputField>
 									</ChildItems>
 								</Table>
-							</ChildItems>
-						</UsualGroup>
-					</ChildItems>
-				</UsualGroup>
-				<UsualGroup name="ГруппаПраво" id="381">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа право</v8:content>
-						</v8:item>
-					</Title>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаПравоРасширеннаяПодсказка" id="382"/>
-					<ChildItems>
-						<UsualGroup name="ГруппаОтветИСериализация" id="220">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Ответ и сериализация</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<ExtendedTooltip name="ГруппаОтветИСериализацияРасширеннаяПодсказка" id="221"/>
-							<ChildItems>
-								<InputField name="ФорматОтвета" id="40">
-									<DataPath>Объект.ФорматОтвета</DataPath>
-									<ContextMenu name="ФорматОтветаКонтекстноеМеню" id="41"/>
-									<ExtendedTooltip name="ФорматОтветаРасширеннаяПодсказка" id="343"/>
-									<Events>
-										<Event name="OnChange">ФорматОтветаПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="ЛимитСтрок" id="42">
-									<DataPath>Объект.ЛимитСтрок</DataPath>
-									<ContextMenu name="ЛимитСтрокКонтекстноеМеню" id="43"/>
-									<ExtendedTooltip name="ЛимитСтрокРасширеннаяПодсказка" id="344"/>
-								</InputField>
-								<InputField name="JSONПараметрыЗаписи" id="46">
-									<DataPath>Объект.JSONПараметрыЗаписи</DataPath>
-									<MultiLine>true</MultiLine>
-									<ContextMenu name="JSONПараметрыЗаписиКонтекстноеМеню" id="47"/>
-									<ExtendedTooltip name="JSONПараметрыЗаписиРасширеннаяПодсказка" id="345"/>
-								</InputField>
-								<UsualGroup name="ГруппаПараметрыЗаписиJSON" id="600">
+								<UsualGroup name="ГруппаОтветИСериализация" id="220">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Параметры записи JSON</v8:content>
+											<v8:content>Ответ и сериализация</v8:content>
 										</v8:item>
 									</Title>
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
-									<ExtendedTooltip name="ГруппаПараметрыЗаписиJSONРасширеннаяПодсказка" id="601">
-										<Title formatted="false">
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Соответствуют конструктору ПараметрыЗаписиJSON встроенного языка. Сохраняются в реквизит «JSONПараметрыЗаписи» как JSON-объект.</v8:content>
-											</v8:item>
-										</Title>
-									</ExtendedTooltip>
+									<ExtendedTooltip name="ГруппаОтветИСериализацияРасширеннаяПодсказка" id="221"/>
 									<ChildItems>
-										<InputField name="ЗаписьJSON_ПереносСтрок" id="602">
-											<DataPath>ЗаписьJSON_ПереносСтрок</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Перенос строк</v8:content>
-												</v8:item>
-											</Title>
-											<DropListButton>true</DropListButton>
-											<ContextMenu name="ЗаписьJSON_ПереносСтрокКонтекстноеМеню" id="603"/>
-											<ExtendedTooltip name="ЗаписьJSON_ПереносСтрокРасширеннаяПодсказка" id="604">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Авто, Нет, Unix или Windows - как записывать переводы строк в JSON-тексте.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
+										<InputField name="ФорматОтвета" id="40">
+											<DataPath>Объект.ФорматОтвета</DataPath>
+											<ContextMenu name="ФорматОтветаКонтекстноеМеню" id="41"/>
+											<ExtendedTooltip name="ФорматОтветаРасширеннаяПодсказка" id="343"/>
+											<Events>
+												<Event name="OnChange">ФорматОтветаПриИзменении</Event>
+											</Events>
 										</InputField>
-										<InputField name="ЗаписьJSON_СимволыОтступа" id="605">
-											<DataPath>ЗаписьJSON_СимволыОтступа</DataPath>
-											<Title>
+										<InputField name="ЛимитСтрок" id="42">
+											<DataPath>Объект.ЛимитСтрок</DataPath>
+											<ToolTip>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Символы отступа</v8:content>
+													<v8:content>Конструктор: максимальное число строк ответа, 0 - без ограничения. Текст запроса: значение параметра &amp;ЛимитСтрок.</v8:content>
 												</v8:item>
-											</Title>
-											<ContextMenu name="ЗаписьJSON_СимволыОтступаКонтекстноеМеню" id="606"/>
-											<ExtendedTooltip name="ЗаписьJSON_СимволыОтступаРасширеннаяПодсказка" id="607">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Обычно два пробела или табуляция для красивого форматирования. Пусто - без дополнительного отступа.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
+											</ToolTip>
+											<ToolTipRepresentation>Button</ToolTipRepresentation>
+											<ContextMenu name="ЛимитСтрокКонтекстноеМеню" id="43"/>
+											<ExtendedTooltip name="ЛимитСтрокРасширеннаяПодсказка" id="344"/>
 										</InputField>
-										<CheckBoxField name="ЗаписьJSON_ИспользоватьДвойныеКавычки" id="608">
-											<DataPath>ЗаписьJSON_ИспользоватьДвойныеКавычки</DataPath>
-											<TitleLocation>Right</TitleLocation>
-											<CheckBoxType>Auto</CheckBoxType>
-											<ContextMenu name="ЗаписьJSON_ИспользоватьДвойныеКавычкиКонтекстноеМеню" id="609"/>
-											<ExtendedTooltip name="ЗаписьJSON_ИспользоватьДвойныеКавычкиРасширеннаяПодсказка" id="610">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>Использовать двойные кавычки для имён свойств JSON.</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
-										</CheckBoxField>
-										<InputField name="ЗаписьJSON_ЭкранированиеСимволов" id="611">
-											<DataPath>ЗаписьJSON_ЭкранированиеСимволов</DataPath>
+										<UsualGroup name="ГруппаПараметрыЗаписиJSON" id="600">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Экранирование символов</v8:content>
+													<v8:content>Параметры записи JSON</v8:content>
 												</v8:item>
 											</Title>
-											<DropListButton>true</DropListButton>
-											<ContextMenu name="ЗаписьJSON_ЭкранированиеСимволовКонтекстноеМеню" id="612"/>
-											<ExtendedTooltip name="ЗаписьJSON_ЭкранированиеСимволовРасширеннаяПодсказка" id="613">
-												<Title formatted="false">
-													<v8:item>
-														<v8:lang>ru</v8:lang>
-														<v8:content>В текущей реализации обрабатывается значение «Нет» (как в JSON по умолчанию).</v8:content>
-													</v8:item>
-												</Title>
-											</ExtendedTooltip>
-										</InputField>
-										<UsualGroup name="ГруппаЗаписьJSONЭкранирование" id="614">
-											<Title>
+											<ToolTip>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Экранирование в XML при сериализации</v8:content>
+													<v8:content>Соответствуют конструктору ПараметрыЗаписиJSON встроенного языка. Сохраняются в реквизит "JSONПараметрыЗаписи" как JSON-объект.</v8:content>
 												</v8:item>
-											</Title>
+											</ToolTip>
 											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
-											<ExtendedTooltip name="ГруппаЗаписьJSONЭкранированиеРасширеннаяПодсказка" id="615"/>
+											<ExtendedTooltip name="ГруппаПараметрыЗаписиJSONРасширеннаяПодсказка" id="601"/>
 											<ChildItems>
-												<CheckBoxField name="ЗаписьJSON_ЭкранироватьУгловыеСкобки" id="616">
-													<DataPath>ЗаписьJSON_ЭкранироватьУгловыеСкобки</DataPath>
+												<InputField name="ЗаписьJSON_ФорматДаты" id="634">
+													<DataPath>ЗаписьJSON_ФорматДаты</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Формат дат</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Как выводить даты в ответе JSON. По умолчанию ISO 8601 - стандартный формат платформы.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ContextMenu name="ЗаписьJSON_ФорматДатыКонтекстноеМеню" id="635"/>
+													<ExtendedTooltip name="ЗаписьJSON_ФорматДатыРасширеннаяПодсказка" id="636"/>
+												</InputField>
+												<InputField name="ЗаписьJSON_ПереносСтрок" id="602">
+													<DataPath>ЗаписьJSON_ПереносСтрок</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Перенос строк</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Авто, Нет, Unix или Windows - как записывать переводы строк в JSON-тексте.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<DropListButton>true</DropListButton>
+													<ContextMenu name="ЗаписьJSON_ПереносСтрокКонтекстноеМеню" id="603"/>
+													<ExtendedTooltip name="ЗаписьJSON_ПереносСтрокРасширеннаяПодсказка" id="604"/>
+												</InputField>
+												<InputField name="ЗаписьJSON_СимволыОтступа" id="605">
+													<DataPath>ЗаписьJSON_СимволыОтступа</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Символы отступа</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Обычно два пробела или табуляция для красивого форматирования. Пусто - без дополнительного отступа.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<ContextMenu name="ЗаписьJSON_СимволыОтступаКонтекстноеМеню" id="606"/>
+													<ExtendedTooltip name="ЗаписьJSON_СимволыОтступаРасширеннаяПодсказка" id="607"/>
+												</InputField>
+												<CheckBoxField name="ЗаписьJSON_ИспользоватьДвойныеКавычки" id="608">
+													<DataPath>ЗаписьJSON_ИспользоватьДвойныеКавычки</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Использовать двойные кавычки для имен свойств JSON.</v8:content>
+														</v8:item>
+													</Title>
 													<TitleLocation>Right</TitleLocation>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
 													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ЗаписьJSON_ЭкранироватьУгловыеСкобкиКонтекстноеМеню" id="617"/>
-													<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьУгловыеСкобкиРасширеннаяПодсказка" id="618"/>
+													<ContextMenu name="ЗаписьJSON_ИспользоватьДвойныеКавычкиКонтекстноеМеню" id="609"/>
+													<ExtendedTooltip name="ЗаписьJSON_ИспользоватьДвойныеКавычкиРасширеннаяПодсказка" id="610"/>
 												</CheckBoxField>
-												<CheckBoxField name="ЗаписьJSON_ЭкранироватьРазделительСтрок" id="619">
-													<DataPath>ЗаписьJSON_ЭкранироватьРазделительСтрок</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ЗаписьJSON_ЭкранироватьРазделительСтрокКонтекстноеМеню" id="620"/>
-													<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьРазделительСтрокРасширеннаяПодсказка" id="621"/>
-												</CheckBoxField>
-												<CheckBoxField name="ЗаписьJSON_ЭкранироватьАмперсанд" id="622">
-													<DataPath>ЗаписьJSON_ЭкранироватьАмперсанд</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ЗаписьJSON_ЭкранироватьАмперсандКонтекстноеМеню" id="623"/>
-													<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьАмперсандРасширеннаяПодсказка" id="624"/>
-												</CheckBoxField>
-												<CheckBoxField name="ЗаписьJSON_ЭкранироватьОдинарныеКавычки" id="625">
-													<DataPath>ЗаписьJSON_ЭкранироватьОдинарныеКавычки</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ЗаписьJSON_ЭкранироватьОдинарныеКавычкиКонтекстноеМеню" id="626"/>
-													<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьОдинарныеКавычкиРасширеннаяПодсказка" id="627"/>
-												</CheckBoxField>
-												<CheckBoxField name="ЗаписьJSON_ЭкранироватьКавычки" id="628">
-													<DataPath>ЗаписьJSON_ЭкранироватьКавычки</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ЗаписьJSON_ЭкранироватьКавычкиКонтекстноеМеню" id="629"/>
-													<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьКавычкиРасширеннаяПодсказка" id="630"/>
-												</CheckBoxField>
+												<InputField name="ЗаписьJSON_ЭкранированиеСимволов" id="611">
+													<DataPath>ЗаписьJSON_ЭкранированиеСимволов</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Экранирование символов</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Нет - экранируются только обязательные символы; СимволыВнеASCII или СимволыВнеBMP - дополнительно символы вне этого диапазона (escape-последовательностями).</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ToolTipRepresentation>Button</ToolTipRepresentation>
+													<DropListButton>true</DropListButton>
+													<ContextMenu name="ЗаписьJSON_ЭкранированиеСимволовКонтекстноеМеню" id="612"/>
+													<ExtendedTooltip name="ЗаписьJSON_ЭкранированиеСимволовРасширеннаяПодсказка" id="613"/>
+												</InputField>
+												<UsualGroup name="ГруппаЗаписьJSONЭкранирование" id="614">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Экранирование символов в JSON</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<ExtendedTooltip name="ГруппаЗаписьJSONЭкранированиеРасширеннаяПодсказка" id="615"/>
+													<ChildItems>
+														<CheckBoxField name="ЗаписьJSON_ЭкранироватьУгловыеСкобки" id="616">
+															<DataPath>ЗаписьJSON_ЭкранироватьУгловыеСкобки</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ЗаписьJSON_ЭкранироватьУгловыеСкобкиКонтекстноеМеню" id="617"/>
+															<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьУгловыеСкобкиРасширеннаяПодсказка" id="618"/>
+														</CheckBoxField>
+														<CheckBoxField name="ЗаписьJSON_ЭкранироватьРазделительСтрок" id="619">
+															<DataPath>ЗаписьJSON_ЭкранироватьРазделительСтрок</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ЗаписьJSON_ЭкранироватьРазделительСтрокКонтекстноеМеню" id="620"/>
+															<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьРазделительСтрокРасширеннаяПодсказка" id="621"/>
+														</CheckBoxField>
+														<CheckBoxField name="ЗаписьJSON_ЭкранироватьАмперсанд" id="622">
+															<DataPath>ЗаписьJSON_ЭкранироватьАмперсанд</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ЗаписьJSON_ЭкранироватьАмперсандКонтекстноеМеню" id="623"/>
+															<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьАмперсандРасширеннаяПодсказка" id="624"/>
+														</CheckBoxField>
+														<CheckBoxField name="ЗаписьJSON_ЭкранироватьОдинарныеКавычки" id="625">
+															<DataPath>ЗаписьJSON_ЭкранироватьОдинарныеКавычки</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ЗаписьJSON_ЭкранироватьОдинарныеКавычкиКонтекстноеМеню" id="626"/>
+															<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьОдинарныеКавычкиРасширеннаяПодсказка" id="627"/>
+														</CheckBoxField>
+														<CheckBoxField name="ЗаписьJSON_ЭкранироватьКавычки" id="628">
+															<DataPath>ЗаписьJSON_ЭкранироватьКавычки</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ЗаписьJSON_ЭкранироватьКавычкиКонтекстноеМеню" id="629"/>
+															<ExtendedTooltip name="ЗаписьJSON_ЭкранироватьКавычкиРасширеннаяПодсказка" id="630"/>
+														</CheckBoxField>
+													</ChildItems>
+												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаПроверка" id="240">
+						</Page>
+						<Page name="ГруппаСтраницаПроверка" id="649">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Проверка и пример ответа</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<Behavior>Usual</Behavior>
-							<ExtendedTooltip name="ГруппаПроверкаРасширеннаяПодсказка" id="241"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Проверка и пример ответа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>HorizontalIfPossible</Group>
+							<ExtendedTooltip name="ГруппаСтраницаПроверкаРасширеннаяПодсказка" id="650"/>
+						</Page>
+					</ChildItems>
+				</Pages>
+				<UsualGroup name="ГруппаПроверка" id="673">
+					<Group>Vertical</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПроверкаРасширеннаяПодсказка" id="674"/>
+					<ChildItems>
+						<Table name="ТестовыеЗначенияПараметров" id="502">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ТестовыеЗначенияПараметров</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТестовыеЗначенияПараметровКонтекстноеМеню" id="503"/>
+							<AutoCommandBar name="ТестовыеЗначенияПараметровКоманднаяПанель" id="504"/>
+							<ExtendedTooltip name="ТестовыеЗначенияПараметровРасширеннаяПодсказка" id="505"/>
+							<SearchStringAddition name="ТестовыеЗначенияПараметровСтрокаПоиска" id="506">
+								<AdditionSource>
+									<Item>ТестовыеЗначенияПараметров</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТестовыеЗначенияПараметровСтрокаПоискаКонтекстноеМеню" id="507"/>
+								<ExtendedTooltip name="ТестовыеЗначенияПараметровСтрокаПоискаРасширеннаяПодсказка" id="508"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТестовыеЗначенияПараметровСостояниеПросмотра" id="509">
+								<AdditionSource>
+									<Item>ТестовыеЗначенияПараметров</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТестовыеЗначенияПараметровСостояниеПросмотраКонтекстноеМеню" id="510"/>
+								<ExtendedTooltip name="ТестовыеЗначенияПараметровСостояниеПросмотраРасширеннаяПодсказка" id="511"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТестовыеЗначенияПараметровУправлениеПоиском" id="512">
+								<AdditionSource>
+									<Item>ТестовыеЗначенияПараметров</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТестовыеЗначенияПараметровУправлениеПоискомКонтекстноеМеню" id="513"/>
+								<ExtendedTooltip name="ТестовыеЗначенияПараметровУправлениеПоискомРасширеннаяПодсказка" id="514"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnChange">ТестовыеЗначенияПараметровПриИзменении</Event>
+							</Events>
 							<ChildItems>
-								<Table name="ТестовыеЗначенияПараметров" id="502">
-									<Representation>List</Representation>
-									<AutoInsertNewRow>true</AutoInsertNewRow>
-									<EnableStartDrag>true</EnableStartDrag>
-									<EnableDrag>true</EnableDrag>
-									<DataPath>Объект.ТестовыеЗначенияПараметров</DataPath>
-									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="ТестовыеЗначенияПараметровКонтекстноеМеню" id="503"/>
-									<AutoCommandBar name="ТестовыеЗначенияПараметровКоманднаяПанель" id="504"/>
-									<ExtendedTooltip name="ТестовыеЗначенияПараметровРасширеннаяПодсказка" id="505"/>
-									<SearchStringAddition name="ТестовыеЗначенияПараметровСтрокаПоиска" id="506">
-										<AdditionSource>
-											<Item>ТестовыеЗначенияПараметров</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ТестовыеЗначенияПараметровСтрокаПоискаКонтекстноеМеню" id="507"/>
-										<ExtendedTooltip name="ТестовыеЗначенияПараметровСтрокаПоискаРасширеннаяПодсказка" id="508"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ТестовыеЗначенияПараметровСостояниеПросмотра" id="509">
-										<AdditionSource>
-											<Item>ТестовыеЗначенияПараметров</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ТестовыеЗначенияПараметровСостояниеПросмотраКонтекстноеМеню" id="510"/>
-										<ExtendedTooltip name="ТестовыеЗначенияПараметровСостояниеПросмотраРасширеннаяПодсказка" id="511"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ТестовыеЗначенияПараметровУправлениеПоиском" id="512">
-										<AdditionSource>
-											<Item>ТестовыеЗначенияПараметров</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ТестовыеЗначенияПараметровУправлениеПоискомКонтекстноеМеню" id="513"/>
-										<ExtendedTooltip name="ТестовыеЗначенияПараметровУправлениеПоискомРасширеннаяПодсказка" id="514"/>
-									</SearchControlAddition>
-									<ChildItems>
-										<InputField name="ТестовыеЗначенияПараметровИмяПараметра" id="515">
-											<DataPath>Объект.ТестовыеЗначенияПараметров.ИмяПараметра</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<ContextMenu name="ТестовыеЗначенияПараметровИмяПараметраКонтекстноеМеню" id="516"/>
-											<ExtendedTooltip name="ТестовыеЗначенияПараметровИмяПараметраРасширеннаяПодсказка" id="517"/>
-										</InputField>
-										<InputField name="ТестовыеЗначенияПараметровЗначение" id="518">
-											<DataPath>Объект.ТестовыеЗначенияПараметров.Значение</DataPath>
-											<MultiLine>true</MultiLine>
-											<ContextMenu name="ТестовыеЗначенияПараметровЗначениеКонтекстноеМеню" id="519"/>
-											<ExtendedTooltip name="ТестовыеЗначенияПараметровЗначениеРасширеннаяПодсказка" id="520"/>
-										</InputField>
-									</ChildItems>
-								</Table>
-								<InputField name="РезультатПросмотра" id="60">
-									<DataPath>РезультатПросмотра</DataPath>
+								<InputField name="ТестовыеЗначенияПараметровИмяПараметра" id="515">
+									<DataPath>Объект.ТестовыеЗначенияПараметров.ИмяПараметра</DataPath>
 									<ReadOnly>true</ReadOnly>
+									<Width>10</Width>
+									<ContextMenu name="ТестовыеЗначенияПараметровИмяПараметраКонтекстноеМеню" id="516"/>
+									<ExtendedTooltip name="ТестовыеЗначенияПараметровИмяПараметраРасширеннаяПодсказка" id="517"/>
+								</InputField>
+								<InputField name="ТестовыеЗначенияПараметровЗначение" id="518">
+									<DataPath>Объект.ТестовыеЗначенияПараметров.Значение</DataPath>
 									<MultiLine>true</MultiLine>
-									<ContextMenu name="РезультатПросмотраКонтекстноеМеню" id="61"/>
-									<ExtendedTooltip name="РезультатПросмотраРасширеннаяПодсказка" id="521"/>
+									<ContextMenu name="ТестовыеЗначенияПараметровЗначениеКонтекстноеМеню" id="519"/>
+									<ExtendedTooltip name="ТестовыеЗначенияПараметровЗначениеРасширеннаяПодсказка" id="520"/>
 								</InputField>
 							</ChildItems>
-						</UsualGroup>
+						</Table>
+						<InputField name="РезультатПросмотра" id="60">
+							<DataPath>РезультатПросмотра</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="РезультатПросмотраКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="РезультатПросмотраРасширеннаяПодсказка" id="521"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -832,7 +998,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Поля выборки</v8:content>
+					<v8:content>Поля ответа</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -854,17 +1020,47 @@
 						</v8:StringQualifiers>
 					</Type>
 				</Column>
-				<Column name="Представление" id="2">
+				<Column name="ИмяВОтвете" id="4">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Представление</v8:content>
+							<v8:content>Имя в ответе</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
-							<v8:Length>200</v8:Length>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Формат" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Формат</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>20</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Реквизит" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизит</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
 					</Type>
@@ -927,7 +1123,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Параметр HTTP</v8:content>
+							<v8:content>Параметр запроса</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
@@ -942,7 +1138,22 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Значение (фикс.)</v8:content>
+							<v8:content>Фиксированное значение</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ЗначениеВнутр" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Значение (сериализованное)</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
@@ -954,17 +1165,6 @@
 					</Type>
 				</Column>
 			</Columns>
-		</Attribute>
-		<Attribute name="ПоказатьТекстКонструктора" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Показать JSON и имя таблицы (расширенно)</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:boolean</v8:Type>
-			</Type>
 		</Attribute>
 		<Attribute name="ПредпросмотрИмениТаблицы" id="6">
 			<Title>
@@ -1015,7 +1215,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Двойные кавычки для имён свойств</v8:content>
+					<v8:content>Двойные кавычки для имен свойств</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1085,11 +1285,56 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Экранировать кавычки</v8:content>
+					<v8:content>Экранировать слеш (/)</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="БазовыйАдресAPI" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Базовый адрес API</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИтоговыйАдресAPI" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес API</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаписьJSON_ФорматДаты" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формат дат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 	</Attributes>

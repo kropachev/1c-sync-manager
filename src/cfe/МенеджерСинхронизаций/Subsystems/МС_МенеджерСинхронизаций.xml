@@ -46,6 +46,11 @@
 				<xr:Item xsi:type="xr:MDObjectRef">HTTPService.МС_HTTPAPI</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.МС_HTTPAPIСервер</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.МС_HTTPAPIПользовательскиеОбработчики</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.МС_ПодключенияСервер</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.МС_ВидыПодключений</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.МС_ЖурналОбмена</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Enum.МС_УровниЖурналаОбмена</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.МС_RabbitMQСервер</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

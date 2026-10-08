@@ -17,15 +17,15 @@
 		<ChildObjects>
 			<URLTemplate uuid="b9e4d3c2-5f6a-4890-bcde-f12345678901">
 				<Properties>
-					<Name>ПоВерсииИШаблону</Name>
+					<Name>УниверсальныйШаблон</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>По версии и шаблону URL</v8:content>
+							<v8:content>Универсальный шаблон</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
-					<Template>/{Версия}/{Шаблон}/*</Template>
+					<Template>/{Версия}/{ПараметрURL}/*</Template>
 				</Properties>
 				<ChildObjects>
 					<Method uuid="c0d5e6f7-a8b9-4012-cdef-345678901234">
@@ -39,7 +39,7 @@
 							</Synonym>
 							<Comment/>
 							<HTTPMethod>GET</HTTPMethod>
-							<Handler>ПоВерсииИШаблонуGETЗапрос</Handler>
+							<Handler>УниверсальныйШаблонGET</Handler>
 						</Properties>
 					</Method>
 					<Method uuid="d1e6f7a8-b9c0-4123-def0-456789012345">
@@ -53,7 +53,7 @@
 							</Synonym>
 							<Comment/>
 							<HTTPMethod>POST</HTTPMethod>
-							<Handler>ПоВерсииИШаблонуPOSTЗапрос</Handler>
+							<Handler>УниверсальныйШаблонPOST</Handler>
 						</Properties>
 					</Method>
 					<Method uuid="e2f7a8b9-c0d1-4234-ef01-567890123456">
@@ -67,7 +67,7 @@
 							</Synonym>
 							<Comment/>
 							<HTTPMethod>PUT</HTTPMethod>
-							<Handler>ПоВерсииИШаблонуPUTЗапрос</Handler>
+							<Handler>УниверсальныйШаблонPUT</Handler>
 						</Properties>
 					</Method>
 					<Method uuid="f3a8b9c0-d1e2-4345-f012-678901234567">
@@ -81,7 +81,7 @@
 							</Synonym>
 							<Comment/>
 							<HTTPMethod>DELETE</HTTPMethod>
-							<Handler>ПоВерсииИШаблонуDELETEЗапрос</Handler>
+							<Handler>УниверсальныйШаблонDELETE</Handler>
 						</Properties>
 					</Method>
 					<Method uuid="a4b9c0d1-e2f3-4456-0123-789012345678">
@@ -95,7 +95,7 @@
 							</Synonym>
 							<Comment/>
 							<HTTPMethod>PATCH</HTTPMethod>
-							<Handler>ПоВерсииИШаблонуPATCHЗапрос</Handler>
+							<Handler>УниверсальныйШаблонPATCH</Handler>
 						</Properties>
 					</Method>
 					<Method uuid="b5c0d1e2-f3a4-5567-1234-890123456789">
@@ -109,7 +109,7 @@
 							</Synonym>
 							<Comment/>
 							<HTTPMethod>HEAD</HTTPMethod>
-							<Handler>ПоВерсииИШаблонуHEADЗапрос</Handler>
+							<Handler>УниверсальныйШаблонHEAD</Handler>
 						</Properties>
 					</Method>
 					<Method uuid="c6d1e2f3-a4b5-6678-2345-901234567890">
@@ -123,7 +123,7 @@
 							</Synonym>
 							<Comment/>
 							<HTTPMethod>OPTIONS</HTTPMethod>
-							<Handler>ПоВерсииИШаблонуOPTIONSЗапрос</Handler>
+							<Handler>УниверсальныйШаблонOPTIONS</Handler>
 						</Properties>
 					</Method>
 				</ChildObjects>
